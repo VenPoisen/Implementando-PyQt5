@@ -5,16 +5,16 @@ def valida_cpf(cpf):
     cpf = str(cpf)
 
     cpf = re.sub(r'[^0-9]', '', cpf)
+    
     if not cpf or len(cpf) != 11:
         return False
 
-    # Elimina os dois últimos digitos do CPF
     novo_cpf = cpf[:-2]
     reverso = 10                        # Contador reverso
     total = 0
 
     for index in range(19):
-        if index > 8:                   # Primeiro índice vai de 0 a 9,   018 772 256 0
+        if index > 8:                   # Primeiro índice vai de 0 a 9,
             index -= 9                  # São os 9 primeiros digitos do CPF
 
         total += int(novo_cpf[index]) * reverso  # Valor total da multiplicação
